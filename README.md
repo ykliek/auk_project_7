@@ -31,4 +31,4 @@ project_5
 
 This part includes bubble sort algorithm implementation with optional snapshots. Also it has optimised version of bubble sort algorithm which uses a flag that checks whether any swaps have been made during the inner loop's iteration.
 
-![Part 1 Screenshot](public/static/project_5_part_1_1.png)
+![Part 1 Screenshot](public/static/part_1_screenshot.png)
