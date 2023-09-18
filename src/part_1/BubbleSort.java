@@ -26,12 +26,12 @@ public class BubbleSort {
 	public static void main(String[] args) throws IOException {
 		while (true) {
 			int length = getUserInt("Enter the length of array: ");
-			int choice = getUserInt(
-					"Do you want to create your own array or" +
-							" generate random one? (1 - own, 2 - random)");
 			int isSnapshot = getUserInt(
 					"Do you want to create a snapshot of the" +
 							" sorting process? (1 - yes, 0 - no)");
+			int choice = getUserInt(
+					"Do you want to create your own array or" +
+							" generate random one? (1 - own, 2 - random)");
 			switch (choice) {
 				case 1:
 					int[] inputArray = inputArray(length);
@@ -53,7 +53,7 @@ public class BubbleSort {
 					break;
 				default:
 					System.out.println(
-							"InputError: Please enter a valid number: ");
+							"InputError: Wrong choice!");
 					break;
 			}
 			choice = getUserInt(
@@ -241,6 +241,7 @@ public class BubbleSort {
 
 	/**
 	 * This method sorts an array using optimised bubble sort algorithm.
+	 * By using a flag to check if swapping is done, we can stop the algorithm.
 	 *
 	 * @param arr - array
 	 * @return - sorted array
