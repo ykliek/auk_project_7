@@ -252,6 +252,12 @@ public class BubbleSort {
 		return sb.toString().trim();
 	}
 
+	/**
+	 * This method sorts an array using optimised bubble sort algorithm.
+	 *
+	 * @param arr - array
+	 * @return - sorted array
+	 */
 	public static int[] bubbleSortOptimised(int[] arr) {
 		int length = arr.length;
 		boolean swapped;
