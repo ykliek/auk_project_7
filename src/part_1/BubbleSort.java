@@ -29,7 +29,7 @@ public class BubbleSort {
 			int choice = getUserInt(
 					"Do you want to create your own array or" +
 							" generate random one? (1 - own, 2 - random)");
-			boolean isSnapshot = getUserBool(
+			int isSnapshot = getUserInt(
 					"Do you want to create a snapshot of the" +
 							" sorting process? (1 - yes, 0 - no)");
 			switch (choice) {
@@ -37,7 +37,7 @@ public class BubbleSort {
 					int[] inputArray = inputArray(length);
 					System.out.println("Input array: ");
 					printArray(inputArray);
-					if(isSnapshot) {bubbleSortWithSnapshots(inputArray);}
+					if(isSnapshot == 1) {bubbleSortWithSnapshots(inputArray);}
 					int[] sortedArray = bubbleSort(inputArray);
 					System.out.println("Sorted array: ");
 					printArray(sortedArray);
@@ -46,7 +46,7 @@ public class BubbleSort {
 					int[] randomArray = createRandomArray(length);
 					System.out.println("Random array: ");
 					printArray(randomArray);
-					if(isSnapshot) {bubbleSortWithSnapshots(randomArray);}
+					if(isSnapshot == 1) {bubbleSortWithSnapshots(randomArray);}
 					int[] sortedRandomArray = bubbleSort(randomArray);
 					System.out.println("Sorted random array: ");
 					printArray(sortedRandomArray);
@@ -88,20 +88,6 @@ public class BubbleSort {
 		return scanner.nextInt();
 	}
 
-	/**
-	 * This method gets a boolean from user.
-	 *
-	 * @param prompt - message to user
-	 * @return - boolean
-	 */
-	private static boolean getUserBool(String prompt) {
-		System.out.println(prompt);
-		while (!scanner.hasNextBoolean()) {
-			System.out.println("InputError: Please enter a valid number: ");
-			scanner.next();
-		}
-		return scanner.nextBoolean();
-	}
 
 	/**
 	 * This method gets an array from user.
@@ -204,6 +190,7 @@ public class BubbleSort {
 									arr, j, false)).append("\n");
 				}
 			}
+			snapshot.append("\n");
 		}
 
 		Files.write(Paths.get(
@@ -260,7 +247,7 @@ public class BubbleSort {
 	 */
 	public static int[] bubbleSortOptimised(int[] arr) {
 		int length = arr.length;
-		boolean swapped;
+		boolean swapped; // flag to check if swapping is done
 
 		for (int i = 0; i < length - 1; i++) {
 			swapped = false;
